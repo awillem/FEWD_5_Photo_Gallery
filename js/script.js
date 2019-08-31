@@ -11,15 +11,37 @@ lightbox.option({
 /*************************
  Search 
  ************************/
-
+const gallery = document.getElementsByClassName('gallery')[0];
+const container = document.getElementsByClassName('container')[0];
 const aTags = Array.from(document.getElementsByTagName('a'));
 // console.log(aTags[0].getAttribute('data-title'))
 const input = document.getElementById('search');
-// console.log(aTags)
+
+// Add No Results found and hide
+const noResults = document.createElement('h2');
+noResults.id = 'no-results';
+noResults.innerText = "Sorry, no results found."
+noResults.style.display = 'none';
+container.insertBefore(noResults, gallery);
 
 // Keyup event listener on search input
 
 input.addEventListener('keyup', e => {
+  search(e);
+});
+input.addEventListener('input', e => {
+  search(e);
+});
+
+// Helper function - trims and lower case
+function trimAndLowerCase(value) {
+  value = value.trim();
+  return value.toLowerCase();
+}
+
+function search(e) {
+  noResults.style.display = 'none';
+  // e.preventDefault();
   let value = e.target.value;
   let search = [];
   /*Pushes trimmed and lower case values
@@ -49,38 +71,32 @@ input.addEventListener('keyup', e => {
     Finally, changes the display to block or none depending on the flag
   
   */
+  let noResultsFlag = true;
   aTags.forEach((tag, index) => {
 
     let flag = false;
+
     search.forEach(term => {
       let tagText = tag.getAttribute('data-title').toLowerCase();
       if (tagText.includes(term)) {
         flag = true;
+        noResultsFlag = false;
       }
     });
-    // console.log(tag, flag);
-    // console.log(aTags[index]);
+
     if (flag) {
       aTags[index].style.display = "block";
     } else {
       aTags[index].style.display = "none";
     }
+
+
   });
+  console.log
+  if (noResultsFlag === true) {
+    console.log('here')
+    noResults.style.display = 'block';
+  }
 
-  // search = search.toLowerCase();
-  // search = search.trim();
-  // console.log(value, value.length);
-});
-
-// Helper function - trims and lower case
-function trimAndLowerCase(value) {
-  value = value.trim();
-  return value.toLowerCase();
 }
 
-// a[0].style.display = 'none';
-
-// setTimeout(function () {
-//   a[0].style.display = 'block';
-// }, 5000)
-// img[0].style.display = none;

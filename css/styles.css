@@ -16,6 +16,10 @@ form {
   margin: 0 auto;
 }
 
+#no-results {
+  color: dimgray;
+}
+
 .gallery,
 form {
   display: flex;
@@ -31,18 +35,28 @@ form {
 }
 
 form input {
-  width: 75%;
+  width: 90%;
   padding: 10px;
   font-size: 1.35rem;
   text-align: center;
   border-radius: 5px;
+  box-shadow: 0 4px 12px dimgrey;
   border: none;
-  background: #ddd;
+  background: #ccc;
   transition: .5s ease-in;
 }
 
-form input:hover {
+form input:hover,
+form input:focus {
   box-shadow: 0 0 8px 4px rgba(57,167,200, .8);
+}
+
+form input:focus {
+  outline: none;
+}
+
+h2  {
+  text-align: center;  
 }
 
 
@@ -50,7 +64,7 @@ form input:hover {
   width: 100%;
   border-radius: 5px;
   box-shadow: 0 4px 12px dimgrey;
-  transition:  border .5s ease-in;
+  transition:   .5s ;
   border: 5px  transparent;
 }
 
@@ -59,27 +73,14 @@ form input:hover {
   flex: 1 50%;
   margin: auto;
   padding: 8px;
-  transition: .3s;
 }
 
-.gallery a:hover {
-  z-index: 1000;
-  
-}
+
 
 .gallery img:hover {
-  /* width: 102%; */
   border: 5px solid rgba(57, 167, 200, .8)
 }
 
-/*
-  Changing position of prev/next arrows
-  Float - none
-  postion - absolute
-  prev - left -100px;
-  next - right -100px;
-  opacity 1
-*/
 
 .lb-nav a.lb-prev,
 .lb-nav a.lb-next {
@@ -125,11 +126,6 @@ form input:hover {
   opacity: 1;
 }
 
-/* .lightbox {
-  width: 90%;
-  margin: 0 auto;
-  right: 0;
-} */
 
 .lb-data .lb-close {
   float: none;
@@ -162,7 +158,7 @@ img.lb-image {
   }
 
   form input {
-    width: 50%;
+    width: 60%;
   }
 
   .lb-data .lb-close {
