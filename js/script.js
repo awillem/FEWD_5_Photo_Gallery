@@ -14,17 +14,16 @@ lightbox.option({
 const gallery = document.getElementsByClassName('gallery')[0];
 const container = document.getElementsByClassName('container')[0];
 const aTags = Array.from(document.getElementsByTagName('a'));
-// console.log(aTags[0].getAttribute('data-title'))
 const input = document.getElementById('search');
 
-// Add No Results found and hide
+// Add 'No Results found' and hide it
 const noResults = document.createElement('h2');
 noResults.id = 'no-results';
-noResults.innerText = "Sorry, no results found."
+noResults.innerText = "Sorry, no results found.";
 noResults.style.display = 'none';
 container.insertBefore(noResults, gallery);
 
-// Keyup event listener on search input
+// Keyup and input event listeners on search input
 
 input.addEventListener('keyup', e => {
   search(e);
@@ -48,7 +47,7 @@ function search(e) {
    to search array based on whether there 
    is a comma or not*/
   if (!value.includes(',')) {
-    search.push(trimAndLowerCase(value))
+    search.push(trimAndLowerCase(value));
   } else {
     //creates array of search values
     search = value.split(',');
@@ -62,6 +61,11 @@ function search(e) {
     });
   }
 
+  /*noResultsFlag starts as true, but if the for loops have a search map, 
+  it will set noResultsFlag to false, so it doesn't get displayed.
+  if no search match is found, no Results message will show.  */
+
+  let noResultsFlag = true;
   /* Loops through each link tag  
     Sets a flag to false.  
     Loops through each of terms stored in the search array.  
@@ -71,7 +75,6 @@ function search(e) {
     Finally, changes the display to block or none depending on the flag
   
   */
-  let noResultsFlag = true;
   aTags.forEach((tag, index) => {
 
     let flag = false;
@@ -92,9 +95,8 @@ function search(e) {
 
 
   });
-  console.log
+
   if (noResultsFlag === true) {
-    console.log('here')
     noResults.style.display = 'block';
   }
 
