@@ -38,7 +38,7 @@ form input {
   border-radius: 5px;
   border: none;
   background: #ddd;
-  transition: .4s;
+  transition: .5s ease-in;
 }
 
 form input:hover {
@@ -49,8 +49,8 @@ form input:hover {
 .gallery img {
   width: 100%;
   border-radius: 5px;
-  box-shadow: 0 4px 6px dimgrey;
-  transition: .4s;
+  box-shadow: 0 4px 12px dimgrey;
+  transition:  border .5s ease-in;
   border: 5px  transparent;
 }
 
@@ -103,6 +103,10 @@ form input:hover {
 
   .gallery a {
     flex: 1 33%;
+  }
+
+  .gallery img {
+    max-width: 300px;
   }
 
 .lb-nav a {
