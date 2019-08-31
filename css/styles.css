@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gayathri', sans-serif;
+  letter-spacing: .2rem;
+}
+
+body {
+  background: linear-gradient(rgba(57,167,200, 0.3),rgba(200,57,96,.45)), url('../photos/photography/photography.png');
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.container,
+form {  
+  width: 90%;
+  margin: 0 auto;
+}
+
+.gallery,
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  /* justify-content: space-evenly; */
+}
+
+form {
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+form input {
+  width: 75%;
+  padding: 10px;
+  font-size: 1.35rem;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background: #ddd;
+  transition: .4s;
+}
+
+form input:hover {
+  box-shadow: 0 0 8px 4px rgba(57,167,200, .8);
+}
+
+
+.gallery img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px dimgrey;
+  transition: .4s;
+  border: 5px  transparent;
+}
+
+
+.gallery a {
+  flex: 1 50%;
+  margin: auto;
+  padding: 8px;
+  transition: .3s;
+}
+
+.gallery a:hover {
+  z-index: 1000;
+  
+}
+
+.gallery img:hover {
+  /* width: 102%; */
+  border: 5px solid rgba(57, 167, 200, .8)
+}
+
+/*
+  Changing position of prev/next arrows
+  Float - none
+  postion - absolute
+  prev - left -100px;
+  next - right -100px;
+  opacity 1
+*/
+
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+  opacity: .4;
+}
+
+
+.lb-data .lb-caption {
+  font-size: 18px;
+  width: 70vw;
+  
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+  .container {
+    max-width: 1200px;
+  }
+
+  .gallery a {
+    flex: 1 33%;
+  }
+
+.lb-nav a {
+  float: none;
+  position: absolute;
+
+}
+
+.lb-nav a.lb-prev {
+  left: -100px;
+  opacity: 1;
+}
+
+.lb-nav a.lb-next {
+  right: -100px;
+  opacity: 1;
+}
+
+/* .lightbox {
+  width: 90%;
+  margin: 0 auto;
+  right: 0;
+} */
+
+.lb-data .lb-close {
+  float: none;
+  position: absolute;
+  top: -10%;
+  left: 82%;
+}
+
+.lb-caption {
+  position: absolute;
+  bottom: -25%;
+  text-align: center;
+}
+
+
+.lb-outerContainer {
+  width: 70vw !important;
+  height: 40vw !important;
+}
+
+img.lb-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+}
+
+@media screen and (min-width: 1024px) {
+  .gallery a {
+    flex: 1 25%;
+  }
+
+  form input {
+    width: 50%;
+  }
+
+  .lb-data .lb-close {
+    top: -7%;
+  }
+  
+  .lb-caption {
+    bottom: -20%;
+  }
+}
