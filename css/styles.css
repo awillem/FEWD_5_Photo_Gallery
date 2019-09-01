@@ -44,11 +44,13 @@ form input {
   border: none;
   background: #ccc;
   transition: .5s ease-in;
+  border: 4px transparent solid;
 }
 
 form input:hover,
 form input:focus {
-  box-shadow: 0 0 8px 4px rgba(57,167,200, .8);
+  /* box-shadow: 0 0 8px 8px rgba(57,167,200, .8); */
+  border: 4px white solid;
 }
 
 form input:focus {
@@ -64,9 +66,10 @@ h2  {
   width: 100%;
   border-radius: 5px;
   box-shadow: 0 4px 12px dimgrey;
-  transition:   .5s ;
-  border: 5px  transparent;
+  transition:  .5s ease-in;
+  border: 7px  rgba(255,255,255,0.0);
 }
+
 
 
 .gallery a {
@@ -78,7 +81,8 @@ h2  {
 
 
 .gallery img:hover {
-  border: 5px solid rgba(57, 167, 200, .8)
+  border: 7px solid white; /* rgba(57, 167, 200, .8);*/
+  /* box-shadow: 0 0 8px 8px rgba(57, 167, 200, .8); */
 }
 
 
@@ -90,7 +94,7 @@ h2  {
 
 .lb-data .lb-caption {
   font-size: 18px;
-  width: 70vw;
+  /* width: 70vw; */
   
 }
 
@@ -98,9 +102,7 @@ h2  {
 
 @media screen and (min-width: 768px) {
 
-  .container {
-    max-width: 1200px;
-  }
+  
 
   .gallery a {
     flex: 1 33%;
@@ -126,18 +128,26 @@ h2  {
   opacity: 1;
 }
 
-
-.lb-data .lb-close {
+.lb-data .lb-closeContainer {
   float: none;
   position: absolute;
   top: -10%;
   left: 82%;
 }
 
+
+/* .lb-data .lb-close {
+  float: none;
+  position: absolute;
+  top: -12%;
+  left: 82%;
+} */
+
 .lb-caption {
   position: absolute;
   bottom: -25%;
   text-align: center;
+  width: 70vw;
 }
 
 
@@ -153,6 +163,10 @@ img.lb-image {
 }
 
 @media screen and (min-width: 1024px) {
+
+  .container {
+    max-width: 1200px;
+  }
   .gallery a {
     flex: 1 25%;
   }
@@ -161,10 +175,29 @@ img.lb-image {
     width: 60%;
   }
 
-  .lb-data .lb-close {
-    top: -7%;
+  .lb-data .lb-closeContainer {
+    /* float: none; */
+    /* position: absolute; */
+    top: -8%;
+    left: 73%;
   }
+
+  /* .lb-data .lb-close {
+    top: -7%;
+  } */
   
+  .lb-caption {
+    bottom: -25%;
+    width: 50vw;
+  }
+
+  .lb-outerContainer {
+    width: 50vw !important;
+    height: 28vw !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
   .lb-caption {
     bottom: -20%;
   }
